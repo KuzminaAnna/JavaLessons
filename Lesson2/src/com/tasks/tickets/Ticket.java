@@ -4,7 +4,7 @@ package com.tasks.tickets;
 public class Ticket {
   public static void main(String[] args) {
       int tickets = Ticket.numberOfTickets(100000, 999999);
-      System.out.println(tickets);
+      System.out.println("The number of lucky tickets is: " + tickets);
     }
 
   public static int numberOfTickets(int from, int to) {
