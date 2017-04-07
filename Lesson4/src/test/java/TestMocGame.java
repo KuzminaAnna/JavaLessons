@@ -12,12 +12,15 @@ public class TestMocGame {
   @Mock
   private Board testBoard;
 
+  @Mock
+  private Player player1;
+
   @Test
   public void testGameOver() {
     when(testBoard.checkHorizontalLines()).thenReturn(true);
     when(testBoard.checkVerticalLines()).thenReturn(false);
     when(testBoard.checkDiagonals()).thenReturn(false);
-    TicTacToeGame game = new TicTacToeGame(testBoard);
+    TicTacToeGame game = new TicTacToeGame(testBoard, player1, player1);
     boolean gameComplete = game.gameOver();
     assertThat(gameComplete, is(true));
     }

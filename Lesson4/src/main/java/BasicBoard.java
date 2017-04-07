@@ -42,4 +42,8 @@ public class BasicBoard implements Board {
   public boolean checkDiagonals() {
     return false;
   }
+
+  public boolean isFreeCell(int x, int y) {
+    return getElement(x, y) == ' ';
+  }
 }

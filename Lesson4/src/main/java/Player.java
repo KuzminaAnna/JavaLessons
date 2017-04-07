@@ -1,21 +1,7 @@
-public class Player {
+public interface Player {
+  public String getName();
 
-  private String playerName;
-  private char symbol;
+  public char getSymbol();
 
-  public Player(String playerName, char symbol) {
-    this.playerName = playerName;
-    this.symbol = symbol;
-  }
-
-  public String getName() {
-    return playerName;
-  }
-
-  public char getSymbol() {
-    return symbol;
-  }
-
-
-
+  public int[] move();
 }

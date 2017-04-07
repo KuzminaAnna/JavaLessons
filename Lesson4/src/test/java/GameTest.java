@@ -4,10 +4,13 @@ import static org.hamcrest.core.Is.is;
 
 public class GameTest {
 
+  Player player1 = new Human("Stas", 'x');
+  Player player2 = new ComputerPlayer('o');
+
   @Test
   public void testGameOver() {
     Board testBoard = new TestBoard();
-    TicTacToeGame game = new TicTacToeGame(testBoard);
+    TicTacToeGame game = new TicTacToeGame(testBoard, player1, player2);
     boolean gameComplete = game.gameOver();
     assertThat(gameComplete, is(true));
     }
@@ -35,6 +38,10 @@ public class GameTest {
 
       public boolean checkDiagonals() {
         return false;
+      }
+
+      public boolean isFreeCell(int x, int y) {
+        return true;
       }
     }
   }

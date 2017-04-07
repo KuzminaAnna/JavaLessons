@@ -11,4 +11,6 @@ public interface Board {
   public boolean checkVerticalLines();
 
   public boolean checkDiagonals();
+
+  public boolean isFreeCell(int x, int y);
 }

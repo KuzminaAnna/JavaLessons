@@ -1,16 +1,14 @@
-import java.util.Scanner;
-
 public class TicTacToeGame {
 
-  public Board gameBoard;
-  public Player player1;
-  public Player player2;
-  public Player currentPlayer;
+  private Board gameBoard;
+  private Player player1;
+  private Player player2;
+  private Player currentPlayer;
 
-  public TicTacToeGame(Board gameBoard) {
+  public TicTacToeGame(Board gameBoard, Player player1, Player player2) {
     this.gameBoard = gameBoard;
-    player1 = new Player("Stas", 'X');
-    player2 = new Player("Anna", 'O');
+    this.player1 = player1;
+    this.player2 = player2;
     currentPlayer = player1;
   }
 
@@ -40,11 +38,11 @@ public class TicTacToeGame {
   }
 
   public void move() {
-    Scanner scan = new Scanner(System.in);
-    String index = scan.next();
-    int x = (int) index.charAt(0) - 48;
-    int y = (int) index.charAt(1) - 48;
-    gameBoard.fillCell(x , y, currentPlayer.getSymbol());
+    int[] moveResult;
+    do {
+      moveResult = currentPlayer.move();
+    } while (!gameBoard.isFreeCell(moveResult[0], moveResult[1]));
+    gameBoard.fillCell(moveResult[0], moveResult[1], currentPlayer.getSymbol());
     changePlayer();
   }
 
